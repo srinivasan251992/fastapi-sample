@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  api-dev:
+    container_name: fastapi-sample-dev
+    build: .
+    env_file:
+      - .env.dev
+    ports:
+      - "8000:8000"
+    # not required it's already in Dockerfile:
+    # CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+  api-sit:
+    container_name: fastapi-sample-sit
+    build: .
+    env_file:
+      - .env.sit
+    ports:
+      - "8001:8000"
